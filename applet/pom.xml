@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!-- Standalone application -->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.sf.freehost3270</groupId>
+    <artifactId>freehost3270-suite</artifactId>
+    <version>0.2-CURRENT</version>
+  </parent>
+  <artifactId>freehost3270-applet</artifactId>
+  <name>Freehost3270 applet</name>
+  <packaging>jar</packaging>
+  <distributionManagement>
+    <site>
+      <id>website</id>
+      <url>scp://freehost3270.org/home/jstrayer/freehost3270.org/sub/applet/</url>
+    </site>
+  </distributionManagement>
+  <dependencies>
+    <dependency>
+      <groupId>net.sf.freehost3270</groupId>
+      <artifactId>freehost3270-client</artifactId>
+      <version>0.2-CURRENT</version>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.freehost3270</groupId>
+      <artifactId>freehost3270-gui</artifactId>
+      <version>0.2-CURRENT</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+	<artifactId>maven-assembly-plugin</artifactId>
+	<configuration>
+	  <descriptor>src/main/assembly/dep.xml</descriptor>
+	</configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

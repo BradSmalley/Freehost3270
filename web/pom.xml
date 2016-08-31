@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+
+Web bundle.
+
+Generates pages to launch applet, uses proxy to relay
+requests from the applet to the terminal server.
+
+-->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.sf.freehost3270</groupId>
+    <artifactId>freehost3270-suite</artifactId>
+    <version>0.2-CURRENT</version>
+  </parent>
+  <artifactId>freehost3270-web</artifactId>
+  <name>Freehost3270 web bundle</name>
+  <packaging>war</packaging>
+  <distributionManagement>
+    <site>
+      <id>website</id>
+      <url>scp://freehost3270.org/home/jstrayer/freehost3270.org/sub/web</url>
+    </site>
+  </distributionManagement>
+  <dependencies>
+    <dependency>
+      <groupId>net.sf.freehost3270</groupId>
+      <artifactId>freehost3270-applet</artifactId>
+      <version>0.2-CURRENT</version>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.freehost3270</groupId>
+      <artifactId>freehost3270-proxy</artifactId>
+      <version>0.2-CURRENT</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.4</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+	<artifactId>maven-assembly-plugin</artifactId>
+	<configuration>
+	  <descriptor>src/main/assembly/dep.xml</descriptor>
+	</configuration>
+      </plugin>
+  <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-eclipse-plugin</artifactId>
+      <configuration>
+         <projectnatures>
+            <java.lang.String>com.genuitec.eclipse.j2eedt.core.webnature</java.lang.String>
+            <!-- e.g., also <java.lang.String>com.genuitec.eclipse.cross.easystruts.eclipse.easystrutsnature</java.lang.String> -->
+            <java.lang.String>org.eclipse.jdt.core.javanature</java.lang.String>
+          </projectnatures>
+          <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
+      </configuration>
+    </plugin>
+
+    </plugins>
+  </build>
+</project>
